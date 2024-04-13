@@ -108,7 +108,7 @@ React.useEffect(()=>{
         <div>
           <a href="https://github.com/Sherlock-holmes1029" alt="My Git Hub">
           <h1>made by</h1>
-          <img className="logo" src="./src/assets/1F47E.svg"/>
+          <img className="logo" src="https://raw.githubusercontent.com/Sherlock-holmes1029/CurrencyConverter/main/src/assets/1F47E.svg"/>
         </a>
         </div>
       </footer>
