@@ -101,3 +101,30 @@ i:hover{
   display: block;
 }
 
+footer{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 8px;
+  margin-bottom: 2%;
+}
+footer div a{
+  all: unset;
+  padding-left: 8px;
+  padding-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+footer div{
+  border-radius: 10px;
+  margin-bottom: 4px;
+}
+footer img{
+  width: 30px;
+}
+
+footer a :hover{
+  cursor: pointer;
+}

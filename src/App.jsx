@@ -4,7 +4,7 @@ import {Country_List} from "./data"
 function App() {
   
 
-  
+  const [result,setResult]=React.useState(0.71)  
   const [transfare,setTransfare]=React.useState({
     fromCount:"USD",
     toCount:"JOD",
@@ -24,32 +24,37 @@ React.useEffect(()=>{
           ...prev ,
           rate :exchangeRate
         }))
-        console.log(exchangeRate)
-        console.log("getRate")
+        // console.log(exchangeRate)
+        // console.log("getRate")
      }
     getRate()
      }
     catch{
     window.alert("the Country is not supported")
      }
-  },[transfare.fromCount])
+  },[transfare.fromCount,transfare.toCount])
 
 
   const CountryCodes=Object.keys(Country_List).map((country)=>{
     return (<option key={country} value={country}>{country}</option>)
   })
+
+
+
   function handleChange(event){
     const {value,name}=event.target
     setTransfare(prev=>({
       ...prev,
       [name]:value
     }))
-    console.log(transfare)
-    console.log("handle")
+    // console.log(transfare)
+    // console.log("handle")
   }
 
   function calculateRate(event){
-    event.preventDefault()    
+    event.preventDefault()
+    setResult((transfare.Amount*transfare.rate).toFixed(2))    
+
   }
 
   function change(){
@@ -95,12 +100,20 @@ React.useEffect(()=>{
           {CountryCodes}
           </select>
           </div>
-          <button className='transfare'>Transfare</button>
-          <h1 className='result'>{(transfare.Amount*transfare.rate).toFixed(2)}</h1>
+          <button className='transfare' onClick={handleChange}>Transfare</button>
+          <h1 className='result'>{result}</h1>
         </form>
       </div>
+      <footer>
+        <div>
+          <a href="https://github.com/Sherlock-holmes1029" alt="My Git Hub">
+          <h1>made by</h1>
+          <img className="logo" src="./src/assets/1F47E.svg"/>
+        </a>
+        </div>
+      </footer>
     </>
   )
-}
+  }
 
 export default App
